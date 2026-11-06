@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    margin: 0;
+    padding: 30px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #243b67;
+    margin-bottom: 35px;
+}
+
+h2 {
+    color: #243b67;
+    margin-top: 30px;
+}
+
+form, #eventList, #registrationList {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    background: #3267d6;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #244eaa;
+}
+
+#eventList p, #registrationList p {
+    padding: 12px;
+    background: #eef3ff;
+    border-radius: 6px;
+    margin: 8px 0;
+}
+
+#message {
+    text-align: center;
+    color: green;
+    font-weight: bold;
+}

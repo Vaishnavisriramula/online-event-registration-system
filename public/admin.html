@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Event Management - Admin Dashboard</h1>
+
+    <h2>Total Events: <span id="totalEvents">0</span></h2>
+    <h2>Total Registrations: <span id="totalRegistrations">0</span></h2>
+
+    <h2>All Events</h2>
+    <div id="adminEvents"></div>
+
+    <h2>Registered Participants</h2>
+    <div id="adminRegistrations"></div>
+
+    <script>
+        async function loadDashboard() {
+            const eventsResponse = await fetch("/api/events");
+            const events = await eventsResponse.json();
+
+            document.getElementById("totalEvents").textContent = events.length;
+
+            const eventList = document.getElementById("adminEvents");
+
+            events.forEach(event => {
+                const p = document.createElement("p");
+                p.textContent = `${event.name} - ${event.date} - ${event.location}`;
+                eventList.appendChild(p);
+            });
+
+            const regResponse = await fetch("/api/registrations");
+            const registrations = await regResponse.json();
+
+            document.getElementById("totalRegistrations").textContent = registrations.length;
+
+            const regList = document.getElementById("adminRegistrations");
+
+            registrations.forEach(reg => {
+                const p = document.createElement("p");
+                p.textContent = `${reg.studentName} - ${reg.studentEmail} - ${reg.eventName}`;
+                regList.appendChild(p);
+            });
+        }
+
+        loadDashboard();
+    </script>
+
+</body>
+</html>
