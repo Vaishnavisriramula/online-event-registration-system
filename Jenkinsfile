@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t online-event-registration .'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t online-event-registration .'
             }
         }
 
         stage('Check Application') {
             steps {
-                bat 'docker run --rm online-event-registration node --check server.js'
+                bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run --rm online-event-registration node --check server.js'
             }
         }
     }
