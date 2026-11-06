@@ -8,15 +8,15 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build Docker Image') {
             steps {
-                bat 'npm ci'
+                bat 'docker build -t online-event-registration .'
             }
         }
 
         stage('Check Application') {
             steps {
-                bat 'node --check server.js'
+                bat 'docker run --rm online-event-registration node --check server.js'
             }
         }
     }
